@@ -1,0 +1,56 @@
+﻿#stat-articles {
+    width: 100% !important;
+   border-right: none !important;
+}
+
+#stat-sidebar {
+    padding: initial !important;
+    float: none !important;
+    width: 100% !important;
+    border-bottom: 1px solid #EEE;
+    margin-top: 20px;
+}
+
+#stat-more li {
+    display: inline;
+    margin-right: 35px;
+    font-size: 25px;
+}
+
+#stat-sidebar #stat-more {
+    overflow: initial !important;
+    width: initial !important;
+    float: left;
+    margin-top: 15px;
+}
+
+#stat-search {
+    float: right !important;
+}
+
+#stat-sidebar {
+    height: 75px !important;
+    clear: both !important;
+}
+
+code {
+   font-family: "Courier New", Courier, monospace !important;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.fb-comments {
+    margin-top: 50px;
+}
+
+p.footnote {
+    margin-bottom: 0px !important;
+    font-size: 10px;
+}
+
+q  {
+   font-style: italic;
+}

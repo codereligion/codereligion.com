@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	{block:IndexPage}
+	<title>{Title}</title>
+	<meta name="description" content="{MetaDescription}" />
+	{/block:IndexPage}
+	{block:PostSummary}<title>{PostSummary}</title>{/block:PostSummary}
+	<meta name="color:Background" content="#E2E1DE" />
+	<meta name="image:Header" content="" />
+	<meta name="if:Show About" content="1" />
+	<meta name="if:Show Blog Tools" content="1" />
+	<meta name="if:Show Group Post Author" content="0" />
+	<meta name="if:Show Latest Tweet" content="0" />
+	<meta name="if:Show Likes" content="0" />
+	<meta name="if:Show Search" content="1" />
+	<meta name="text:Tagline" content="Your awesome Tagline" />
+	<meta name="text:About Description" content="About the author" />
+	<meta name="text:Pages Description" content="My Pages" />
+	<meta name="text:Tools Description" content="Blog Tools" />
+	<meta name="text:Google Analytics ID" content="" />
+	<meta name="text:Typekit Kit ID" content="" />
+	<meta name="text:Disqus Shortname" content="" />
+	<meta name="text:Facebook Page ID" content="" />
+	<link rel="shortcut icon" href="{Favicon}" /> 
+	<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+	<link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j8lh0bq/BGcl3oapq/stat-reset.css" />
+	<link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j8lh0bq/2sel3s13n/stat-super.css" />
+    <link type="text/css" rel="stylesheet" href="http://static.tumblr.com/lir8abv/xu4m887io/syntaxhighlighter.css"></link>
+    <link type="text/css" rel="stylesheet" href="http://static.tumblr.com/lir8abv/9JFm88llo/prettify.css"></link>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/USYm887h4/shcore.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/Jrgm887hi/shbrushjava.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/PPWm888j3/shbrushxml.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/61dm888ir/shbrushsql.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/oeym888ig/shbrushphp.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/vJgm888i2/shbrushcss.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/lIDm888hh/shbrushjscript.js"></script>
+    <script language="javascript" src="http://static.tumblr.com/lir8abv/oaxm88ll0/prettify.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+	<script type="text/javascript" src="http://static.tumblr.com/j8lh0bq/Emdl3qcku/stat-modernizr-1.1.min.js"></script>
+	<script type="text/javascript" src="http://static.tumblr.com/j8lh0bq/oYal3slyu/stat-hacks.js"></script>
+    <script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function() {
+            prettyPrint();
+		});
+		//]]>
+	</script>
+	{block:IfGoogleAnalyticsID}
+	<script type="text/javascript">
+		//<![CDATA[
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '{text:Google Analytics ID}']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+		})();
+		//]]>
+	</script>
+	{/block:IfGoogleAnalyticsID}
+	{block:IfTypekitKitID}
+	<script type="text/javascript" src="http://use.typekit.com/{text:Typekit Kit ID}.js"></script> 
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	{/block:IfTypekitKitID}
+	{block:IndexPage}
+	{block:IfShowLatestTweet}
+	{block:Twitter}
+	<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function() {
+			$.ajax({
+			  url: "http://twitter.com/statuses/user_timeline/{TwitterUsername}.json?count=1",
+			  dataType: "jsonp",
+			  timeout: 5000,
+			  success: function(data){              
+				  $.each(data, function(i,tweet){
+				    var html = '<li>' + tweet.text + ' <span><a href="http://www.twitter.com/{TwitterUsername}/status/' + tweet.id + '">Permalink<\/a><\/span><\/li>';
+				    $('#stat-tweet').append(html);
+				  });
+				  $('#stat-tweets').css('display','block');
+			  }
+			});
+		});
+		//]]>
+	</script>
+	{/block:Twitter}
+	{/block:IfShowLatestTweet}
+	{/block:IndexPage}
+	<style type="text/css" media="screen">
+		body { background-color: {color:Background}; }
+		.tag, .search_query { font-weight: bold; }
+		{CustomCSS}
+	</style>
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="stat-wrapper-1"></div>
+<div id="stat-wrapper-2"></div>
+
+<div id="stat-wrapper">
+
+<header id="stat-header">
+	<hgroup>
+		{block:IfHeaderImage}<h1 class="isimg"><a href="/" title="{lang:Home}" {block:Permalink}rel="prefetch"{/block:Permalink}><img src="{image:Header}" alt="{Title}" /></a></h1>{/block:IfHeaderImage}
+		{block:IfNotHeaderImage}<h1><a href="/" title="{lang:Home}" {block:Permalink}rel="prefetch"{/block:Permalink}>{Title}</a></h1>{/block:IfNotHeaderImage}
+		{block:IfTagline}<h2>{text:Tagline}</h2>{/block:IfTagline}
+	</hgroup>
+</header><!-- END#stat-header -->
+
+<aside id="stat-sidebar">
+	{block:IfShowAbout}
+	<section id="stat-about">
+		<img class="stat-tumblr-avatar" src="{PortraitURL-64}" alt="{Title}" />
+		<h2>{text:About Description}</h2>
+		<div class="stat-about-content">{Description}</div>
+		<div class="stat-about-extras">
+			{block:AskEnabled}<span><a href="/ask">{AskLabel}</a></span>{/block:AskEnabled}
+			{block:SubmissionsEnabled}<span><a href="/submit">{SubmitLabel}</a></span>{/block:SubmissionsEnabled}
+		</div>
+		<div class="stat-clear"></div>
+	</section>
+	{/block:IfShowAbout}
+	{block:IfFacebookPageID}
+	<section id="stat-facebook">
+		<iframe src="http://www.facebook.com/plugins/likebox.php?id={text:Facebook Page ID}&amp;width=260&amp;connections=10&amp;stream=false&amp;header=true&amp;height=287" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+	</section>
+	{/block:IfFacebookPageID}
+	{block:IfShowSearch}
+	<section id="stat-search" class="stat-boxed">
+		<form action="/search" method="get">
+			<input id="stat-search-input" type="text" name="q" value="{SearchQuery}" />
+			<button id="stat-search-button" type="submit">{lang:Search}</button>
+		</form>
+	</section>
+	{/block:IfShowSearch}
+	<section id="stat-more">
+		{block:HasPages}
+		<nav class="stat-pages">
+			<h2>{text:Pages Description}</h2>
+			<ul>
+				{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+                {block:AskEnabled}<li><a href="/ask">Ask Us</a></li>{/block:AskEnabled}
+			</ul>
+		</nav>
+		{/block:HasPages}
+		{block:IfShowBlogTools}
+		<nav class="stat-blog-tools">
+			<h2>{text:Tools Description}</h2>
+			<ul>
+				<li><a rel="archives" href="/archive">{lang:Archive}</a></li>
+				<li><a rel="alternate" type="application/rss+xml" href="{RSS}">{lang:RSS}</a></li>
+			</ul>
+		</nav>
+		{/block:IfShowBlogTools}
+	</section>
+	{block:IndexPage}
+	{block:IfShowLatestTweet}
+	<section id="stat-tweets" class="stat-boxed">
+		<h2>{lang:Latest Tweet}</h2>
+		<ul id="stat-tweet"></ul>
+	</section>
+	{/block:IfShowLatestTweet}
+	{block:IfShowLikes}
+	{block:Likes} 
+	<section id="stat-likes" class="stat-boxed">
+		<h2>{lang:Likes}</h2>
+		{Likes}
+	</section>
+	{/block:Likes}
+	{/block:IfShowLikes}
+	{/block:IndexPage}
+</aside><!-- END#stat-sidebar -->
+
+<section id="stat-articles">
+	{block:TagPage}
+	<article class="stat-text">
+		<section>
+			<p>{lang:Posts tagged Tag 2}</p>
+		</section>
+		<div class="stat-clear"></div>
+	</article>
+	{/block:TagPage}
+	{block:SearchPage}
+	<article class="stat-text">
+		<section>
+		    {block:NoSearchResults}
+		        <p>{lang:No search results for SearchQuery 2}</p>
+		    {/block:NoSearchResults}
+		    {block:SearchResults}
+		        <p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
+		    {/block:SearchResults}
+		</section>
+		<div class="stat-clear"></div>
+	</article>
+	{/block:SearchPage}
+	{block:Posts}
+	{block:Text}	
+	<article class="stat-text" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
+		</header>
+		<section>
+			{Body}
+			{block:More}<p class="stat-more"><a href="{Permalink}">{lang:Read more} &hellip;</a></p>{/block:More}
+            <div class="fb-comments" data-href="{Permalink}" data-num-posts="10" data-width="510"></div>
+		</section>
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Text}
+	{block:Photo}
+	<article class="stat-photo" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<div class="stat-media-wrapper">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>
+		</header>
+		{block:Caption}<section>{Caption}</section>{/block:Caption}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Photo}
+	{block:Photoset}
+	<article class="stat-photoset" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<div class="stat-media-wrapper">{Photoset-500}</div>
+		</header>
+		{block:Caption}<section>{Caption}</section>{/block:Caption}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Photoset}
+	{block:Quote}
+	<article class="stat-quote" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<blockquote>{Quote}</blockquote>
+		</header>
+		{block:Source}<section>{Source}</section>{/block:Source}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Quote}
+	{block:Link}
+	<article class="stat-link" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<h1><a rel="external" href="{URL}" {Target}>{Name}</a></h1>
+		</header>
+		{block:Description}<section>{Description}</section>{/block:Description}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Link}
+	{block:Chat}
+	<article class="stat-chat" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
+		</header>
+		<section>
+			<dialog>
+				{block:Lines}{block:Label}<dt>{Label}</dt>{/block:Label}<dd>{Line}</dd>{/block:Lines}
+			</dialog>
+		</section>
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Chat}
+	{block:Audio}
+	<article class="stat-audio" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<div class="stat-audio-wrapper {block:AlbumArt}stat-extra-padding{/block:AlbumArt}">
+				{block:AlbumArt}<div class="stat-audio-album-art"><img src="{AlbumArtURL}" alt /></div>{/block:AlbumArt}
+				<div class="stat-audio-left">
+					<div class="stat-audio-player">{AudioPlayerBlack}</div>
+					<div class="stat-audio-play-count">{FormattedPlayCount} Plays{block:ExternalAudio} <a href="{ExternalAudioURL}" class="stat-audio-download">&rarr;</a>{/block:ExternalAudio}</div>
+					{block:Artist}<div class="stat-audio-artist">{Artist}</div>{/block:Artist}
+					{block:TrackName}<div class="stat-audio-song">{TrackName}</div>{/block:TrackName}
+				</div>
+				<div class="stat-clear"></div>
+			</div>
+		</header>
+		{block:Caption}<section>{Caption}</section>{/block:Caption}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Audio}
+	{block:Video}
+	<article class="stat-video" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+			<div class="stat-media-wrapper">{Video-500}</div>
+		</header>
+		{block:Caption}<section>{Caption}</section>{/block:Caption}
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Video}
+	{block:Answer}
+	<article class="stat-answer" id="post-{PostID}">
+		<header>
+			{block:Date}
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
+			{/block:Date}
+		</header>
+		<section>
+			<div class="stat-the-question">
+				<div class="stat-thumbnail"><img src="{AskerPortraitURL-64}" alt /></div>
+				<div class="stat-qa-content">
+					<span>{lang:Asker asked}:</span>
+					{Question}
+				</div>
+			</div>
+			<div class="stat-the-answer">
+				<div class="stat-thumbnail"><img src="{PortraitURL-64}" alt /></div>
+				<div class="stat-qa-content">{Answer}</div>
+			</div>
+		</section>
+		<div class="stat-clear"></div>
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+		<aside>
+			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<div class="stat-has-author">
+				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
+		{block:IfShowGroupPostAuthor}{block:GroupMembers}
+			</div>
+		</aside>
+		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
+	</article>
+	{/block:Answer}
+	{/block:Posts}
+	{block:Posts}{block:Permalink}{block:Date}
+	{block:IfDisqusShortname}
+	<section id="disqus_thread"></section>
+	{/block:IfDisqusShortname}
+	{/block:Date}{/block:Permalink}{/block:Posts}
+	{block:PostNotes} 
+	<section id="notes">{PostNotes}</section>
+	{/block:PostNotes}
+</section><!-- END#stat-articles -->
+
+{block:Pagination}
+<nav id="stat-navigation">
+	<ul>
+		{block:PreviousPage}<li class="stat-nav-left"><a rel="prev" href="{PreviousPage}">{lang:Previous page}</a></li>{/block:PreviousPage}
+		{block:NextPage}<li class="stat-nav-right"><a rel="next" href="{NextPage}">{lang:Next page}</a></li>{/block:NextPage}
+		<li class="stat-nav-center">{lang:Page CurrentPage of TotalPages}</li>
+	</ul>
+</nav><!-- END#stat-navigation -->
+{/block:Pagination}
+
+</div><!-- END#stat-wrapper -->
+
+<footer id="stat-footer">
+	<p>We love <a href="http://www.tumblr.com/" rel="external">Tumblr</a> <span>&amp;</span> <a href="http://www.tumblr.com/theme/3292" rel="external">Stationery</a> by <a href="http://thijsjacobs.com/" rel="external">Thijs</a></p>
+</footer>
+
+{block:Posts}{block:Permalink}{block:Date}
+{block:IfDisqusShortname}
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://disqus.com/forums/{text:Disqus Shortname}/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+//]]>
+</script>
+{/block:IfDisqusShortname}
+{/block:Date}{/block:Permalink}{/block:Posts}
+{block:IndexPage}
+{block:IfDisqusShortname}
+<script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
+{/block:IfDisqusShortname}
+{/block:IndexPage}
+<script language="javascript">
+    dp.SyntaxHighlighter.ClipboardSwf = 'http://static.tumblr.com/lir8abv/Nvhm887hw/clipboard.swf';
+    dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body>
+</html>
