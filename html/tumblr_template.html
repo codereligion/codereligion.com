@@ -1,9 +1,9 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
-	<meta charset="utf-8" />
-	{block:IndexPage}
-	<title>{Title}</title>
+    <meta charset="utf-8" />
+    {block:IndexPage}
+    <title>{Title}</title>
 	<meta name="description" content="{MetaDescription}" />
 	{/block:IndexPage}
 	{block:PostSummary}<title>{PostSummary}</title>{/block:PostSummary}
@@ -210,7 +210,7 @@
 	<article class="stat-text" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
@@ -218,27 +218,15 @@
 		<section>
 			{Body}
 			{block:More}<p class="stat-more"><a href="{Permalink}">{lang:Read more} &hellip;</a></p>{/block:More}
-            <div class="fb-comments" data-href="{Permalink}" data-num-posts="10" data-width="510"></div>
 		</section>
 		<div class="stat-clear"></div>
-		{block:IfShowGroupPostAuthor}{block:GroupMembers}
-		<aside>
-			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
-			<div class="stat-has-author">
-				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
-		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
-				{block:HasTags}<p class="stat-tumblr-tags">{lang:Filed under} {block:Tags}<a href="{TagURL}">{Tag}</a><span></span> {/block:Tags}</p>{/block:HasTags} 
-		{block:IfShowGroupPostAuthor}{block:GroupMembers}
-			</div>
-		</aside>
-		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
-	</article>
+	</article>    
 	{/block:Text}
 	{block:Photo}
 	<article class="stat-photo" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-media-wrapper">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>
@@ -262,7 +250,7 @@
 	<article class="stat-photoset" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-media-wrapper">{Photoset-500}</div>
@@ -286,7 +274,7 @@
 	<article class="stat-quote" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<blockquote>{Quote}</blockquote>
@@ -310,7 +298,7 @@
 	<article class="stat-link" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<h1><a rel="external" href="{URL}" {Target}>{Name}</a></h1>
@@ -334,7 +322,7 @@
 	<article class="stat-chat" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
@@ -362,7 +350,7 @@
 	<article class="stat-audio" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-audio-wrapper {block:AlbumArt}stat-extra-padding{/block:AlbumArt}">
@@ -395,7 +383,7 @@
 	<article class="stat-video" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-media-wrapper">{Video-500}</div>
@@ -419,7 +407,7 @@
 	<article class="stat-answer" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a>{block:IfDisqusShortname} &amp; <a class="stat-disqus" href="{Permalink}#disqus_thread">{lang:Comments}</a>{/block:IfDisqusShortname}</p>
+				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 		</header>
@@ -449,13 +437,29 @@
 		</aside>
 		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
 	</article>
-	{/block:Answer}
+	{/block:Answer}    
 	{/block:Posts}
-	{block:Posts}{block:Permalink}{block:Date}
-	{block:IfDisqusShortname}
-	<section id="disqus_thread"></section>
-	{/block:IfDisqusShortname}
-	{/block:Date}{/block:Permalink}{/block:Posts}
+    <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://codereligion.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=codereligion">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {/block:Permalink}<script type="text/javascript">
+        var disqus_shortname = 'codereligion';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://codereligion.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
 	{block:PostNotes} 
 	<section id="notes">{PostNotes}</section>
 	{/block:PostNotes}
@@ -478,35 +482,6 @@
 </footer>
 
 {block:Posts}{block:Permalink}{block:Date}
-{block:IfDisqusShortname}
-<script type="text/javascript">
-//<![CDATA[
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = 'http://disqus.com/forums/{text:Disqus Shortname}/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-//]]>
-</script>
-{/block:IfDisqusShortname}
-{/block:Date}{/block:Permalink}{/block:Posts}
-{block:IndexPage}
-{block:IfDisqusShortname}
-<script type="text/javascript">
-//<![CDATA[
-(function() {
-	var links = document.getElementsByTagName('a');
-	var query = '?';
-	for(var i = 0; i < links.length; i++) {
-	if(links[i].href.indexOf('#disqus_thread') >= 0) {
-		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-	}
-	}
-	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-})();
-//]]>
-</script>
-{/block:IfDisqusShortname}
 {/block:IndexPage}
 <script language="javascript">
     dp.SyntaxHighlighter.ClipboardSwf = 'http://static.tumblr.com/lir8abv/Nvhm887hw/clipboard.swf';

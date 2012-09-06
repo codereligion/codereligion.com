@@ -42,10 +42,6 @@ sup {
     font-size: smaller;
 }
 
-.fb-comments {
-    margin-top: 50px;
-}
-
 p.footnote {
     margin-bottom: 0px !important;
     font-size: 10px;
@@ -53,4 +49,24 @@ p.footnote {
 
 q  {
    font-style: italic;
+}
+
+#stat-articles article section table, #stat-articles article section h1, #stat-articles article section h2, #stat-articles article section h3, #stat-articles article section h4, #stat-articles article section h5, #stat-articles article section h6, #stat-articles article section pre, #stat-articles article section blockquote, #stat-articles article section ul, #stat-articles article section ol, #stat-articles article section p {
+    margin-bottom: 10px !important;
+}
+
+h2 {
+    margin-top: 25px !important;
+}
+
+h3 {
+    margin-top: 15px !important;
+}
+
+.postAuthorImage {
+    float: right;
+    margin: 0 8px 0 0;
+    padding: 2px;
+    background-color: white;
+    border: 1px solid #EEEBDE;
 }
