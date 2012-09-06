@@ -1,10 +1,10 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8" />
     {block:IndexPage}
     <title>{Title}</title>
-	<meta name="description" content="{MetaDescription}" />
+    <meta name="description" content="{MetaDescription}" />
 	{/block:IndexPage}
 	{block:PostSummary}<title>{PostSummary}</title>{/block:PostSummary}
 	<meta name="color:Background" content="#E2E1DE" />
@@ -137,6 +137,15 @@
 		<iframe src="http://www.facebook.com/plugins/likebox.php?id={text:Facebook Page ID}&amp;width=260&amp;connections=10&amp;stream=false&amp;header=true&amp;height=287" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 	</section>
 	{/block:IfFacebookPageID}
+	<section id="stat-more">
+		<ul>
+			{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+			<li><a target="_blank" href="https://github.com/organizations/codereligion">@github</a></li>
+            {block:AskEnabled}<li><a href="/ask">Ask Us</a></li>{/block:AskEnabled}
+            <li><a rel="archives" href="/archive">{lang:Archive}</a></li>
+			<li><a rel="alternate" type="application/rss+xml" href="{RSS}">{lang:RSS}</a></li>
+		</ul>
+	</section>
 	{block:IfShowSearch}
 	<section id="stat-search" class="stat-boxed">
 		<form action="/search" method="get">
@@ -145,26 +154,6 @@
 		</form>
 	</section>
 	{/block:IfShowSearch}
-	<section id="stat-more">
-		{block:HasPages}
-		<nav class="stat-pages">
-			<h2>{text:Pages Description}</h2>
-			<ul>
-				{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
-                {block:AskEnabled}<li><a href="/ask">Ask Us</a></li>{/block:AskEnabled}
-			</ul>
-		</nav>
-		{/block:HasPages}
-		{block:IfShowBlogTools}
-		<nav class="stat-blog-tools">
-			<h2>{text:Tools Description}</h2>
-			<ul>
-				<li><a rel="archives" href="/archive">{lang:Archive}</a></li>
-				<li><a rel="alternate" type="application/rss+xml" href="{RSS}">{lang:RSS}</a></li>
-			</ul>
-		</nav>
-		{/block:IfShowBlogTools}
-	</section>
 	{block:IndexPage}
 	{block:IfShowLatestTweet}
 	<section id="stat-tweets" class="stat-boxed">
@@ -210,7 +199,7 @@
 	<article class="stat-text" id="post-{PostID}">
 		<header>
 			{block:Date}
-				<p class="stat-notes"><a class="stat-bubble" href="{Permalink}#notes"><span class="stat-point"></span><em>{NoteCountWithLabel}</em></a></p>
+                <img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
@@ -235,7 +224,7 @@
 		<div class="stat-clear"></div>
 		{block:IfShowGroupPostAuthor}{block:GroupMembers}
 		<aside>
-			<img src="{PostAuthorPortraitURL-40}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
+			<img src="{PostAuthorPortraitURL-64}" class="stat-tumblr-author-avatar" alt="{PostAuthorName}" />
 			<div class="stat-has-author">
 				<p class="stat-tumblr-author">{lang:By PostAuthorName 2}</p>
 		{/block:GroupMembers}{/block:IfShowGroupPostAuthor}
@@ -441,10 +430,7 @@
 	{/block:Posts}
     <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
         <script type="text/javascript">
-          /**
-            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
-            */
-          (function() {
+           (function() {
            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
            dsq.src = 'http://codereligion.disqus.com/embed.js';
            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
@@ -459,6 +445,10 @@
           s.src = 'http://codereligion.disqus.com/count.js';
           (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
+        </script>
+        <script language="javascript">
+            dp.SyntaxHighlighter.ClipboardSwf = 'http://static.tumblr.com/lir8abv/Nvhm887hw/clipboard.swf';
+            dp.SyntaxHighlighter.HighlightAll('code');
         </script>
 	{block:PostNotes} 
 	<section id="notes">{PostNotes}</section>
@@ -483,9 +473,5 @@
 
 {block:Posts}{block:Permalink}{block:Date}
 {/block:IndexPage}
-<script language="javascript">
-    dp.SyntaxHighlighter.ClipboardSwf = 'http://static.tumblr.com/lir8abv/Nvhm887hw/clipboard.swf';
-    dp.SyntaxHighlighter.HighlightAll('code');
-</script>
 </body>
 </html>

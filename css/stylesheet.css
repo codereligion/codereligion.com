@@ -4,12 +4,23 @@
 }
 
 #stat-sidebar {
-    padding: initial !important;
     float: none !important;
+    height: 75px !important;
     width: 100% !important;
     border-bottom: 1px solid #EEE;
+    padding: 0 !important;
     margin-top: 20px;
+    clear: both !important;
 }
+
+#stat-sidebar #stat-more {
+    overflow: initial !important;
+    width: 500px !important;
+    height: 30px !important;
+    float: left;
+    margin-top: 15px;
+}
+
 
 #stat-more li {
     display: inline;
@@ -17,20 +28,8 @@
     font-size: 25px;
 }
 
-#stat-sidebar #stat-more {
-    overflow: initial !important;
-    width: initial !important;
-    float: left;
-    margin-top: 15px;
-}
-
 #stat-search {
     float: right !important;
-}
-
-#stat-sidebar {
-    height: 75px !important;
-    clear: both !important;
 }
 
 code {
@@ -63,10 +62,35 @@ h3 {
     margin-top: 15px !important;
 }
 
-.postAuthorImage {
-    float: right;
+.postAuthorImage,
+.authorsAuthorImage {
     margin: 0 8px 0 0;
     padding: 2px;
     background-color: white;
     border: 1px solid #EEEBDE;
+}
+
+.postAuthorImage {
+    float: right;
+}
+
+.authorsAuthorImage {
+    float: left;
+}
+
+.authorInfo {
+    clear: both;
+    width: 100%;
+    height: 80px;
+    margin-top: 40px
+}
+
+.authorInfo h2 {
+    margin: 7px 0 !important;
+    float: left;
+}
+
+#stat-articles #disqus_thread {
+    border: 1px solid #DED9D4 !important;
+    background-color: #FFFFFF !important;
 }
