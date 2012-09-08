@@ -100,7 +100,18 @@
 		   font-style: italic;
 		}
 		
-		#stat-articles article section table, #stat-articles article section h1, #stat-articles article section h2, #stat-articles article section h3, #stat-articles article section h4, #stat-articles article section h5, #stat-articles article section h6, #stat-articles article section pre, #stat-articles article section blockquote, #stat-articles article section ul, #stat-articles article section ol, #stat-articles article section p {
+		#stat-articles article section table, 
+		#stat-articles article section h1, 
+		#stat-articles article section h2, 
+		#stat-articles article section h3, 
+		#stat-articles article section h4, 
+		#stat-articles article section h5, 
+		#stat-articles article section h6, 
+		#stat-articles article section pre, 
+		#stat-articles article section blockquote, 
+		#stat-articles article section ul, 
+		#stat-articles article section ol, 
+		#stat-articles article section p {
 		    margin-bottom: 10px !important;
 		}
 		
@@ -205,8 +216,8 @@
 	{block:Text}	
 	<article class="stat-text" id="post-{PostID}">
 		<header>
-            <img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+	            <img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
@@ -221,8 +232,8 @@
 	{block:Photo}
 	<article class="stat-photo" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-media-wrapper">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>
@@ -247,8 +258,8 @@
 	{block:Quote}
 	<article class="stat-quote" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<blockquote>{Quote}</blockquote>
@@ -260,8 +271,8 @@
 	{block:Link}
 	<article class="stat-link" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<h1><a rel="external" href="{URL}" {Target}>{Name}</a></h1>
@@ -273,8 +284,8 @@
 	{block:Chat}
 	<article class="stat-chat" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			{block:Title}<h1><a rel="bookmark" href="{Permalink}">{Title}</a></h1>{/block:Title}
@@ -290,8 +301,8 @@
 	{block:Audio}
 	<article class="stat-audio" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-audio-wrapper {block:AlbumArt}stat-extra-padding{/block:AlbumArt}">
@@ -312,8 +323,8 @@
 	{block:Video}
 	<article class="stat-video" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 			<div class="stat-media-wrapper">{Video-500}</div>
@@ -325,8 +336,8 @@
 	{block:Answer}
 	<article class="stat-answer" id="post-{PostID}">
 		<header>
-			<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 			{block:Date}
+				<img class="postAuthorImage" src="{PostAuthorPortraitURL-96}"/>
 				<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" pubdate><a rel="bookmark" href="{Permalink}">{Month} {DayOfMonth}, {Year}</a></time>
 			{/block:Date}
 		</header>
